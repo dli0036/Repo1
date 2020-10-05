@@ -1,0 +1,30 @@
+
+#!/bin/bash
+
+
+echo "Hello human!"
+echo "Moving contents of csv file to txt file . . ."
+cut -d, -f 1,2-15 Pokemon.csv>Pokemon.txt
+
+
+
+echo "Displays beginning part of Pokemon Stats file"
+head Pokemon.txtv
+
+echo "Extraction from the csv file executes"
+awk -F, 'NR>2 { print $2 ; }' Pokemon.txt
+
+echo "Displays columns 2,3,4 of the current file"
+cut -d, -f 2,3-4 Pokemon.txt
+
+echo "Sorts file by column number"
+sort -t"," -k1n,5 Pokemon.txt
+
+echo "Displays some columns of the current file"
+awk ' FS="," { print $2 "," $1 } ' Pokemon.txt
+
+echo "Saves terminal output to a new file"
+command>output.txt
+
+
+
